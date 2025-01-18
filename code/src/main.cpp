@@ -1,8 +1,10 @@
-#include <iostream>
+#include "../includes/GameMgr.h"
 
 int main(void)
 {
-    std::cout << "Hello World - TicTacToe !" << std::endl;
+    GameMgr *gameMgr = new GameMgr();
+
+    gameMgr->runGame();
 
     return 0;
 }
