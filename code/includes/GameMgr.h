@@ -4,6 +4,17 @@
 #include "SingletonInputMgr.h"
 #include "Player.h"
 
+#include <random>
+
+namespace Randomizer
+{
+    enum DiceValues
+    {
+        LOWEST_VALUE_FOR_DICE_OF_SIX = 1,
+        HIGHEST_VALUE_FOR_DICE_OF_SIX = 6
+    };
+}
+
 class GameMgr
 {
 private:
@@ -14,6 +25,9 @@ public:
     virtual ~GameMgr() = default;
     void runGame();
     void askAndStoreForPlayerNames(void);
+    int generateRandomDiceOfSixNumber(void);
+    void getGameStartingPlayer(void);
+
 };
 
 #endif /* GAME_MGR_H */

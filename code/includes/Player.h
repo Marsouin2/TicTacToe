@@ -8,6 +8,8 @@ class Player
 {
 private:
     std::string _playerName;
+    Mark _playerMark;
+
 public:
     Player(const std::string rNewPlayerName) : _playerName(rNewPlayerName) { std::cout << "Hello " << _playerName << std::endl; };
     virtual ~Player() { _playerName.clear(); };
