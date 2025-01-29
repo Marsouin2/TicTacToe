@@ -4,6 +4,7 @@ void MapMgr::renderMap(void)
 {
     for (uint16_t i = 0; i < _mapHeight; ++i)
     {
+	std::cout << std::endl;
         for (uint16_t u = 0; u < _mapWidth; ++u)
         {
             if ((3 == i) || (7 == i))
@@ -23,4 +24,5 @@ void MapMgr::renderMap(void)
             }
         }
     }
+    std::cout << '\n';
 }

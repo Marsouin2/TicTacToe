@@ -3,6 +3,7 @@
 
 #include "SingletonInputMgr.h"
 #include "Player.h"
+#include "MapMgr.h"
 
 #include <random>
 
@@ -20,9 +21,11 @@ class GameMgr
 private:
     Player _playerOne;
     Player _playerTwo;
+    MapMgr _mapMgr;
+
 public:
     GameMgr();
-    virtual ~GameMgr() = default;
+    virtual ~GameMgr();
     void runGame();
     void askAndStoreForPlayerNames(void);
     int generateRandomDiceOfSixNumber(void);

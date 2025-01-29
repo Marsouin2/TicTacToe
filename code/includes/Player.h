@@ -4,14 +4,16 @@
 #include <string>
 #include <iostream>
 
+#include "Mark.h"
+
 class Player
 {
 private:
     std::string _playerName;
-    Mark _playerMark;
+    char _playerMark;
 
 public:
-    Player(const std::string rNewPlayerName) : _playerName(rNewPlayerName) { std::cout << "Hello " << _playerName << std::endl; };
+    Player(const std::string &rNewPlayerName, const char &rPlayerMark) : _playerName(rNewPlayerName), _playerMark(rPlayerMark) { std::cout << "Hello " << _playerName << std::endl; };
     virtual ~Player() { _playerName.clear(); };
     const std::string getPlayerName(void) const { return _playerName; };
     void setPlayerName(const std::string rNewPlayerName) { _playerName = rNewPlayerName; };

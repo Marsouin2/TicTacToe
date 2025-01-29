@@ -1,22 +1,26 @@
 #include "../includes/GameMgr.h"
 
-GameMgr::GameMgr(void) : _playerOne(""), _playerTwo("")
+GameMgr::GameMgr() : _playerOne("empty", '|'), _playerTwo("empty", '|') 
 {
-
+    
 }
+
+GameMgr::~GameMgr() {}
 
 void GameMgr::runGame()
 {
     askAndStoreForPlayerNames();
     getGameStartingPlayer();
-    // who starts first ?
+    bool bThereIsAWinner = false;
 
-    while (true) // boucle de gameplay
+    while (!bThereIsAWinner) // boucle de gameplay
     {
+	_mapMgr.renderMap(); 
         // render map
         // take players input
         // check every time a player plays if it wins
         // Endgame message
+	bThereIsAWinner = true;
     }
 }
 
@@ -44,6 +48,7 @@ void GameMgr::getGameStartingPlayer(void)
 
     if (iPlayerFirstDiceScore == iPlayerTwoDiceScore)
     {
+	std::cout << "Ooops : you've made the same result. Let's roll again !" << std::endl;
         getGameStartingPlayer();
     }
     else if (iPlayerFirstDiceScore > iPlayerTwoDiceScore)
