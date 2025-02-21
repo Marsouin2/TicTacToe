@@ -10,8 +10,17 @@ TARGET = tictactoe
 SRC = $(CODE_FOLDER)$(SRC_FOLDER)*.cpp
 
 # Flags
-CXX = g++
-CXXFLAGS = -Wall -g
+
+# Detect OS
+OS := $(shell uname)
+
+# Set compiler based on OS
+ifeq ($(OS), Darwin)
+    CXX = clang++
+else
+    CXX = g++
+endif
+CXXFLAGS = -Wall -std=c++11
 LDFLAGS = -lSDL2
 
 # all rule

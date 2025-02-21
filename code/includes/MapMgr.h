@@ -5,12 +5,12 @@
 class MapMgr
 {
 private:
-    std::vector<std::vector<char16_t>> _map;
-    static constexpr int _mapHeight = 9;
-    static constexpr int _mapWidth = 15;
+    std::vector<std::vector<char16_t> > _map;
+    int _mapHeight;
+    int _mapWidth;
 
 public:
-    MapMgr() = default;
+    MapMgr(const int &rMapHeight, const int &rMapWidth) : _mapHeight(rMapHeight), _mapWidth(rMapWidth) {};
     MapMgr(const MapMgr& rCopyObject) = delete;
     virtual ~MapMgr() = default;
 
