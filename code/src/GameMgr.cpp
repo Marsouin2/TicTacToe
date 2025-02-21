@@ -1,6 +1,6 @@
 #include "../includes/GameMgr.h"
 
-GameMgr::GameMgr() : _playerOne("empty", '|'), _playerTwo("empty", '|'), _mapMgr(9, 15)
+GameMgr::GameMgr() : _playerOne("empty", '|'), _playerTwo("empty", '|'), _mapMgr(11, 15)
 {
     
 }
