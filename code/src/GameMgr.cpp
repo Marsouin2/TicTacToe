@@ -1,8 +1,19 @@
 #include "../includes/GameMgr.h"
 
+// Define and initialize static member
+bool GameMgr::_bThereIsAWinner = true;
+
 GameMgr::GameMgr() : _playerOne("empty", '|'), _playerTwo("empty", '|'), _mapMgr(11, 15)
 {
-    
+    //SingletonSignalHandler::getInstance(this);
+    _bThereIsAWinner = false;
+    std::signal(SIGINT, GameMgr::signalHandler); // Register signal handler
+}
+
+void GameMgr::signalSigintHandler(int signal)
+{
+    std::cout << "Signal sigint with " << signal << std::endl;
+    _bThereIsAWinner = true;
 }
 
 GameMgr::~GameMgr() {}
@@ -11,16 +22,17 @@ void GameMgr::runGame()
 {
     askAndStoreForPlayerNames();
     getGameStartingPlayer();
-    bool bThereIsAWinner = false;
 
-    while (!bThereIsAWinner) // boucle de gameplay
+    while (!_bThereIsAWinner) // boucle de gameplay
     {
-	_mapMgr.renderMap(); 
+	    _mapMgr.renderMap(); 
         // render map
         // take players input
         // check every time a player plays if it wins
         // Endgame message
-	bThereIsAWinner = true;
+	    //bThereIsAWinner = true;
+
+        // DO SOMETHING TO CUT OFF THE GAME : catch ctrl-c to stop the game
     }
 }
 

@@ -5,6 +5,8 @@
 #include "Player.h"
 #include "MapMgr.h"
 
+#include <csignal>
+#include <signal.h>
 #include <random>
 
 namespace Randomizer
@@ -22,6 +24,13 @@ private:
     Player _playerOne;
     Player _playerTwo;
     MapMgr _mapMgr;
+    static bool _bThereIsAWinner;
+    //friend class SingletonSignalHandler;
+    static void signalHandler(int)
+    {
+        std::cout << "\nSIGINT caught, stopping game...\n";
+        _bThereIsAWinner = true;
+    }
 
 public:
     GameMgr();
@@ -30,7 +39,7 @@ public:
     void askAndStoreForPlayerNames(void);
     int generateRandomDiceOfSixNumber(void);
     void getGameStartingPlayer(void);
-
+    void signalSigintHandler(int signal);
 };
 
 #endif /* GAME_MGR_H */

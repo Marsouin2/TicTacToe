@@ -6,5 +6,7 @@ int main(void)
 
     gameMgr->runGame();
 
+    delete(gameMgr);
+
     return 0;
 }
