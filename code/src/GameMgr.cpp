@@ -25,8 +25,8 @@ void GameMgr::runGame()
 
     while (!_bThereIsAWinner) // boucle de gameplay
     {
-	    _mapMgr.renderMap(); 
-        // render map
+	    _mapMgr.actualizeAndRenderMap(); // render map
+        // wait until player input to render again
         // take players input
         // check every time a player plays if it wins
         // Endgame message

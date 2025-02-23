@@ -10,10 +10,10 @@ class Player
 {
 private:
     std::string _playerName;
-    char _playerMark;
+    //char _playerMark;
 
 public:
-    Player(const std::string &rNewPlayerName, const char &rPlayerMark) : _playerName(rNewPlayerName), _playerMark(rPlayerMark) { };
+    Player(const std::string &rNewPlayerName, const char &rPlayerMark) : _playerName(rNewPlayerName) { };
     virtual ~Player() { _playerName.clear(); };
     const std::string getPlayerName(void) const { return _playerName; };
     void setPlayerName(const std::string rNewPlayerName) { _playerName = rNewPlayerName; };
